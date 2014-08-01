@@ -1,0 +1,6 @@
+Dear {!Opportunity.Name},
+
+      You are Appproved By the manager since your amount is greater than 5000
+
+Thank you n Regards,
+{!Opportunity.OwnerFullName}

@@ -1,0 +1,15 @@
+<apex:page StandardController="Account" extensions="cloneAccount">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+      <apex:repeat var="w" value="{!wrapperLst}">
+          <apex:inputCheckbox value="{!w.flag}"/>
+          {!w.str}<br/>
+      </apex:repeat>
+      <apex:commandButton id="saveBtn" value="Save" action="{!saveAccount}" />
+
+  </apex:form>
+  <!-- End Default Content REMOVE THIS  <apex:repeat var="f" value="{!lstFields}">
+      <apex:inputcheckbox label="{!f}"/>
+         {!f}<br/>
+      </apex:repeat>  <apex:inputText value="{!f}"/><br/>-->
+</apex:page>

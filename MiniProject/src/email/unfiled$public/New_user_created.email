@@ -1,0 +1,5 @@
+Hello {!Lead.OwnerFullName},
+
+     New lead  named {!Lead.Name} of  Industry = "Technology" is created.
+
+Thanks

@@ -1,0 +1,19 @@
+<apex:page controller="searchPage">
+  <apex:form >
+    <apex:inputText label="Insert query" value="{!searchKey}"/><br/>
+    <apex:selectList value="{!selectedOption}" multiselect="false" size="1">
+        <apex:selectOption itemValue="Lead" itemLabel="Lead"/>
+        <apex:selectOption itemValue="Account" itemLabel="Account"/>
+        <apex:selectOption itemValue="Contact" itemLabel="Contact"/>
+    </apex:selectList>
+    <apex:commandButton value="Search" action="{!searchInit}"/>
+
+      <br/>
+            <br/>
+  <apex:outputPanel >
+    <apex:repeat var="lst" value="{!lstSearch}">
+        <apex:outputLink value="https://ap1.salesforce.com/{!lst['id']}">{!lst['name']}</apex:outputLink><br/>
+    </apex:repeat>
+  </apex:outputPanel>
+  </apex:form>
+</apex:page>

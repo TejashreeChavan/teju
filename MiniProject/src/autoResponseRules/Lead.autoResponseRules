@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>lead sumission</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <senderEmail>tejashree.chavan@eternussolutions.com</senderEmail>
+            <senderName>Tejashree chavan</senderName>
+            <template>unfiled$public/web_to_forn_info</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

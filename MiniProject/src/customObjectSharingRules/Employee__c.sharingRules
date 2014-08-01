@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>HR_Manager</fullName>
+        <sharedTo>
+            <role>HR</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Current_Employee__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>HR Manager</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>

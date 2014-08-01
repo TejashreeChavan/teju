@@ -1,0 +1,28 @@
+<apex:page standardController="Campaign" recordSetVar="Campaigns" sidebar="True">
+<apex:form >
+<apex:pageBlock >
+<apex:pageMessages />
+<apex:pageBlock >
+<apex:panelGrid columns="2">
+<apex:outputLabel value="View:"/>
+<apex:selectList value="{!filterId}" size="1">
+<apex:actionSupport event="onchange" rerender="Cmp_table"/>
+<apex:selectOptions value="{!listviewoptions}"/>
+</apex:selectList>
+</apex:panelGrid>
+</apex:pageBlock>
+<apex:pageBlockTable value="{!Campaigns}" var="Cmp" id="Cmp_table">
+<apex:column value="{!Cmp.name}"/>
+<apex:column headerValue="Status">
+<apex:inputField value="{!Cmp.Status}"/>
+</apex:column>
+<apex:column headerValue="Type">
+<apex:inputField value="{!Cmp.Type}"/>
+</apex:column>
+<apex:column headerValue="Start Date">
+<apex:inputField value="{!Cmp.StartDate}"/>
+</apex:column>
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

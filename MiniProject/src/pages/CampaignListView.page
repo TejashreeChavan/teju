@@ -1,0 +1,35 @@
+<apex:page standardController="Campaign" recordSetvar="Campaigns">
+<apex:pageBlock title="Viewing Campaigns">
+<apex:form id="theForm">
+<apex:panelGrid columns="2">
+<apex:outputLabel value="View:"/>
+<apex:selectList value="{!filterId}" size="1">
+<apex:actionSupport event="onchange" rerender="Cmp_table"/>
+<apex:selectOptions value="{!listviewoptions}"/>
+</apex:selectList>
+</apex:panelGrid>
+<apex:pageBlockSection >
+<apex:pageBlockTable value="{!Campaigns}" var="cmp" id="Cmp_table">
+<!--apex:column value="{!cmp.name}"/-->
+<apex:column headerValue="Campaign name">
+<!-- apex:commandbutton value="{!cmp.Name}" action="/apex/ContactDetailPage?id={!Campaign.id}"/-->
+<apex:outputLink value="/apex/CampaignDetailPage?id={!Cmp.id}">{!cmp.Name}</apex:outputLink>
+</apex:column>
+<apex:column headerValue="Staus">
+<apex:outputText value="{!cmp.Status}"/>
+</apex:column>
+<apex:column headerValue="Type">
+<apex:outputText value="{!cmp.Type}"/>
+</apex:column>
+<apex:column headerValue="Start Date">
+<apex:outputText value="{!cmp.StartDate}"/>
+</apex:column>
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+<apex:panelGrid columns="2">
+<apex:commandButton action="{!previous}" Value="Previous"/>
+<apex:commandButton action="{!next}" Value="Next"/>
+</apex:panelGrid>
+</apex:form>
+</apex:pageBlock>
+</apex:page>

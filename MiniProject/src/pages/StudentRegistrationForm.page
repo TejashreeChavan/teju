@@ -1,0 +1,36 @@
+<apex:page standardController="Student__c" extensions="StudentDetails">
+
+  <apex:pageBlock id="msgs">
+   <apex:pageMessages />
+  Student registration form 
+  <apex:form >
+  <apex:pageBlockSection showHeader="true" >
+  
+            <apex:selectList value="{!selectedLang}" size="1">
+                <apex:selectOption itemvalue="English"></apex:selectOption>
+                <apex:selectOption itemvalue="French"></apex:selectOption>
+                <apex:selectOption itemvalue="Spanish"></apex:selectOption>
+            </apex:selectList>
+            <apex:commandButton value="Change Language" action="{!changeLanguage}"/>
+       
+ </apex:pageBlockSection>
+ <apex:pageBlockSection showHeader="true"  >
+  <br/>
+ <apex:inputField value="{!Student__c.Student_Name__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.Roll_number__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.Gender__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.Course_Applying_for__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.H_S_C__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.S_S_C__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.Country__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.State__c}"/><br/><br/>
+ <apex:inputField value="{!Student__c.City__c}"/><br/><br/>
+
+          
+ <apex:commandButton action="{!submit}" value="Submit" reRender="msgs" /><br/><br/>
+ 
+ <apex:pagemessage summary="{!msg}" severity="Info"/>
+  </apex:pageBlockSection>
+  </apex:form>
+  </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page StandardController="Account" extensions="RelatedContacts">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+   <apex:repeat var="wrapper" value="{!lstWrapper}">
+       <apex:outputLabel value="Name  "></apex:outputLabel><apex:inputText value="{!wrapper.cName}"></apex:inputText><br/>
+       <apex:outputLabel value="Phone  "></apex:outputLabel><apex:inputText value="{!wrapper.cPhone}"></apex:inputText><br/>
+       <apex:outputLabel value="Email  "></apex:outputLabel><apex:inputText value="{!wrapper.email}"></apex:inputText><br/><br/>
+       <apex:outputLabel value="ID:  {!wrapper.cntId}"></apex:outputLabel><br/>
+   </apex:repeat>
+   <center><apex:commandButton value="Update details" action="{!updateContact}"></apex:commandButton></center>
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

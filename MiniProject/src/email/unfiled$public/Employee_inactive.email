@@ -1,0 +1,5 @@
+Dear M{!Employee__c.Manager__c},
+
+ Your employe {!Employee__c.First_Name__c}  {!Employee__c.Last_Name__c} is inactive.
+
+Thank you

@@ -1,0 +1,28 @@
+<apex:page standardController="Account" extensions="PictureGallary">
+<script type="text/javascript">
+  function selectCheckboxes(inpt,receivedInptID)
+   {
+     var inputCheckBox = document.getElementsByTagName("input");                  
+     for(var i=0; i<inputCheckBox.length; i++)
+      {          
+       if(inputCheckBox[i].id.indexOf(receivedInptID)!=-1){                                     
+          inputCheckBox[i].checked = inpt.checked;
+       }
+     }
+   }
+</script>
+<apex:pageBlock title="Picture Gallery Functionality" id="msgs">
+<apex:pageMessages />
+<apex:form >
+<apex:pageBlockSection columns="2">
+Enter Email Ids: <apex:inputText value="{!Emails}" /><br/>
+<apex:commandButton value="Send images" action="{!sendEmail}" reRender="msgs"/>
+<apex:inputCheckbox id="selectchk" onclick="selectCheckboxes(this,'inputId')"/> Select All images
+<apex:repeat var="i" value="{!piclist}">
+  <apex:inputCheckbox id="inputId" value="{!i.flag}" />
+  <apex:image id="theImage" value="https://c.ap1.content.force.com/servlet/servlet.FileDownload?file={!i.imgId}" width="200" height="100"/>
+</apex:repeat>
+</apex:pageBlockSection>
+</apex:form>
+</apex:pageBlock>
+</apex:page>

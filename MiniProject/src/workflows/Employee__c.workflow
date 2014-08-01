@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Leave_Approvment</fullName>
+        <description>Leave Approvment</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Address__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Leave_approval_template</template>
+    </alerts>
+    <alerts>
+        <fullName>Manager_email</fullName>
+        <description>to notify the Manager of the Employee once the record is deactivated.</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>tejashree@tchavan.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SupportEscalatedCaseNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>employee_inactive</fullName>
+        <description>employee inactive</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Manager_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Employee_inactive</template>
+    </alerts>
+    <alerts>
+        <fullName>rejection_leave</fullName>
+        <description>rejection leave</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email_Address__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Leave_Rejection_template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Current_Employee_workflow_action</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Non_Technical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Current Employee workflow action</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>mng_mail</fullName>
+        <field>Manager_Email__c</field>
+        <formula>Manager__r.Manager_Email__c</formula>
+        <name>mng_mail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>mng_mail1</fullName>
+        <field>Manager_Email__c</field>
+        <formula>Manager__r.Email_Address__c</formula>
+        <name>mng_mail1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Current Employee workflow</fullName>
+        <actions>
+            <name>Current_Employee_workflow_action</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Employee__c.Current_Employee__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Manager Mail1</fullName>
+        <actions>
+            <name>mng_mail1</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>emp inactive</fullName>
+        <actions>
+            <name>employee_inactive</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Employee__c.Is_Active__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

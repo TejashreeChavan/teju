@@ -1,0 +1,30 @@
+<apex:page standardController="Campaign">
+<!-- apex:detail subject="{!Campaign}" relatedList="false" title="true" -->
+<apex:pageBlock title="Viewing Campaigns">
+<apex:form id="theForm">
+<apex:panelGrid columns="2"  >
+<apex:pageBlockSection columns="1" >
+<h1><b>Campaign Details</b></h1> 
+<apex:commandLink action="{!edit}">Edit</apex:commandlink>
+<apex:commandLink action="{!delete}">Delete</apex:commandlink>
+</apex:pageBlockSection>
+
+<!--apex:commandLink action="{!co}"--><!--/apex:commandlink-->
+<apex:pageBlockSection >
+ <apex:outputText value="  {!Campaign.owner.name}"/>
+  <apex:outputText value="  {!Campaign.name}"/>
+ <apex:outputText value="  {!Campaign.startdate}"/>
+  <apex:outputText value="  {!Campaign.enddate}"/>
+ <apex:outputText value="  {!Campaign.createdby.name}"/>
+ <apex:outputText value="  {!Campaign.lastmodifiedby.name}"/>
+  <apex:outputText value="  {!Campaign.Description}"/>
+  <apex:outputText value="  {!Campaign.type}"/>
+ <apex:outputText value="  {!Campaign.NumberSent}"/>
+ <apex:outputText value="  {!Campaign.Status}"/>
+ <apex:outputText value="  {!Campaign.parent.name}"/>
+</apex:pageBlockSection>
+</apex:panelGrid>
+
+</apex:form>
+</apex:pageBlock>
+</apex:page>

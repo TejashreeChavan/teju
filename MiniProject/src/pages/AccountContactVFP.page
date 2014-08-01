@@ -1,0 +1,58 @@
+<apex:page controller="accountcontact1" >
+
+<table>
+  <apex:repeat value="{!accounts}" var="accWrap">
+
+<!-- <tr> <td>
+
+  <apex:outputText value="User ID : {!accWrap.userid}"/>
+
+</td></tr>-->
+
+<tr> <td>
+
+  <apex:outputText value="User  name: {!accWrap.username}"/>
+
+</td></tr>
+
+ 
+
+   <apex:repeat value="{!accWrap.accounts}" var="acc">
+
+<tr><td>
+
+<apex:outputText value="Account : {!acc.Name}"/>
+
+</td></tr>
+
+      <apex:repeat value="{!acc.contacts}" var="cont">
+
+<tr><td>
+<apex:form ><br/>
+<apex:outputText value=" Contact Name: "/>
+<apex:inputfield value=" {!cont.Name}"/><br/>
+<apex:outputText value=" Phone : "/>
+<apex:inputfield value=" {!cont.Phone}"/><br/>
+<apex:outputText value=" Email : "/>
+<apex:inputfield value=" {!cont.Email}"/>
+
+</apex:form>
+</td></tr>
+</apex:repeat>
+
+
+<tr><td><hr/></td></tr>
+
+</apex:repeat>
+
+ 
+
+</apex:repeat>
+
+<apex:form >
+<apex:commandButton id="save" value="Save" action="{!saveAccount}" />
+</apex:form>
+</table>
+
+
+</apex:page>

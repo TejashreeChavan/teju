@@ -1,0 +1,6 @@
+Dear {!Employee__c.Full_Name__c},
+
+  SORRY!! Your Leave approvement has been rejected.
+
+regards,
+{!Employee__c.Last_Working_Day__c}

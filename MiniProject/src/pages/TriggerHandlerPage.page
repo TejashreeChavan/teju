@@ -1,0 +1,9 @@
+<apex:page standardController="TriggerHandler__c" extensions="TriggerController">
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+      <apex:inputcheckbox value="{!isChecked}"/>
+      <apex:outputLabel value="Disable the contact duplicate trigger"></apex:outputLabel><br/>
+      <apex:commandButton value="Execute" action="{!executeAction}"/>
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

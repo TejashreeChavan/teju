@@ -1,0 +1,18 @@
+<apex:page controller="ScheduledOpportunityAmountAggregator" >
+<apex:pageBlock title="Scheduled Opportunity" id="msgs">
+<apex:pageMessages />
+<apex:form >
+<table>
+<tr><td><apex:outputLabel >Seconds:</apex:outputLabel></td><td><apex:inputText value="{!Seconds}" /><br/></td></tr>
+<tr><td><apex:outputLabel >Minutes:</apex:outputLabel></td><td><apex:inputText value="{!Minutes}" /><br/></td></tr>
+<tr><td><apex:outputLabel >Hours:</apex:outputLabel></td><td><apex:inputText value="{!Hours}" /><br/></td></tr>
+<tr><td><apex:outputLabel >Day of Month:</apex:outputLabel></td><td><apex:inputText value="{!DOM}" /><br/></td></tr>
+<tr><td><apex:outputLabel >Month:</apex:outputLabel></td><td><apex:inputText value="{! Month}" /><br/></td></tr>
+<tr><td><apex:outputLabel >Day of Week:</apex:outputLabel></td><td><apex:inputText value="{!DOW}"  /><br/></td></tr>
+<tr><td><apex:outputLabel >Year:</apex:outputLabel></td><td><apex:inputText value="{!year}" /><br/></td></tr>
+<tr><td><apex:commandButton value="Preview" action="{!SeePreview}" reRender="msgs"/><br/></td></tr>
+<tr><td><apex:commandButton value="Schedule" action="{!Schedule}" reRender="msgs"/><br/></td></tr>
+</table>
+</apex:form>
+</apex:pageBlock>
+</apex:page>
